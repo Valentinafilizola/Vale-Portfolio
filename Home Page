@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina's Apple-Inspired Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&family=Montserrat:wght@600&display=swap');
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #F1F1F1; /* Initial light grey */
+            color: #e1e1e1; /* Light gray text */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #F1F1F1; /* Start with light grey */
+            z-index: 1000;
+            transition: background 0.5s ease; /* Ensures smooth transition */
+            box-shadow: none; /* Remove box shadow */
+        }
+
+        .header h1 {
+            font-family: 'Judson', serif;
+            color: #E67999; /* Pink color for the header title */
+            font-size: 2.5rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .header h1:hover {
+            color: #ff3366; /* Hover color */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            color: #e1e1e1;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #E67999; /* Turn to pink when hovered */
+            transform: scale(1.1);
+        }
+
+        /* Fade-in Effect */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+            backdrop-filter: blur(15px);
+            width: 80%;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bio Section */
+        .bio {
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 4rem;
+            color: #E67999;
+            margin-top: 0;
+            position: absolute;
+            top: 35%;
+            left: 10%;
+            transform: translateX(0%);
+            line-height: 1.8;
+            letter-spacing: 2px;
+            max-width: 80%;
+            word-wrap: break-word;
+            white-space: normal;
+            transition: color 0.5s ease;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: flex;
+            gap: 0;
+            margin-top: 600px; /* Adjusted to add more scrolling on the dark grey screen */
+            padding: 0;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .project {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #f5f0f6; /* Light pink for case study screens */
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            object-fit: cover;
+            width: 100%;
+            height: 60%;
+            transition: transform 0.3s ease;
+        }
+
+        .project .title {
+            font-family: 'Judson', serif;
+            font-size: 2.5rem;
+            color: #1d1d1f;
+            margin-top: 20px;
+        }
+
+        .project .description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem; /* Made text size larger for the case studies */
+            color: #333;
+            padding: 0 20px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 1rem;
+            color: #b3b3b3;
+        }
+
+        .footer a {
+            color: #E67999;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #ff3366;
+        }
+
+        /* Mobile Styling */
+        @media (max-width: 768px) {
+            /* Remove the desktop header text and hamburger menu for mobile */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #F1F1F1;
+                z-index: 1000;
+            }
+
+            .header h1 {
+                font-size: 2rem; /* Smaller header text on mobile */
+            }
+
+            .bio {
+                font-size: 2.5rem; /* Smaller bio text on mobile */
+                left: 10%; /* Adjust the bio text position */
+                top: 30%;
+            }
+
+            .hamburger-menu {
+                display: block;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #F1F1F1;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Valentina Filizola</h1>
+        <nav class="nav-links">
+            <a href="https://valentinafilizola.webflow.io/about">About</a> 
+         
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Mobile Hamburger Menu -->
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <!-- Bio Section -->
+    <div class="bio">
+        Creating equitable and impactful user experiences @ the University of Washington.
+    </div>
+
+    <div id="projects" class="projects">
+        <div class="project" style="background-color: #F9E5E5;">
+            <img src="https://via.placeholder.com/800x500/FF6347" alt="Project Image">
+            <div class="title">Case Study 1</div>
+            <div class="description">A project that explores innovative solutions in design and technology.</div>
+        </div>
+        <div class="project" style="background-color: #F8D3D3;">
+            <img src="https://via.placeholder.com/800x500/FF8C00" alt="Project Image">
+            <div class="title">Case Study 2</div>
+            <div class="description">Exploring the intersection of art and engineering in this unique project.</div>
+        </div>
+        <div class="project" style="background-color: #F5C6C6;">
+            <img src="https://via.placeholder.com/800x500/20B2AA" alt="Project Image">
+            <div class="title">Case Study 3</div>
+            <div class="description">A case study showcasing breakthrough technological advancements.</div>
+        </div>
+        <div class="project" style="background-color: #F0A5A5;">
+            <img src="https://via.placeholder.com/800x500/8A2BE2" alt="Project Image">
+            <div class="title">Case Study 4</div>
+            <div class="description">A deep dive into design thinking and its impact on modern engineering.</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Created by Valentina Filizola | <a href="mailto:valentina@example.com">Contact Me</a></p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        gsap.from(".fade-in", { 
+            opacity: 0, 
+            y: 50, 
+            duration: 1, 
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".fade-in",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        // Scroll-triggered color change effect and text toggle
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.scrollY;
+            let bio = document.querySelector('.bio');
+            let header = document.querySelector('.header');
+            let body = document.body;
+
+            if (scrollPosition > 100) { // Change after scrolling 100px
+                body.style.backgroundColor = '#222222'; // Dark grey
+                header.style.backgroundColor = '#222222'; // Dark grey header
+                bio.style.color = '#E67999'; // Pink bio text color (Spanish)
+                bio.innerHTML = "Creando experiencias de usuario equitativas e impactantes en la Universidad de Washington."; // Spanish bio
+            } else {
+                body.style.backgroundColor = '#F1F1F1'; // Light grey
+                header.style.backgroundColor = '#F1F1F1'; // Light grey header
+                bio.style.color = '#E67999'; // Pink bio text color (English)
+                bio.innerHTML = "Creating equitable and impactful user experiences @ the University of Washington."; // English bio
+            }
+        });
+    </script>
+</body>
+</html>
