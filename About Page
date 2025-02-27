@@ -173,9 +173,16 @@
     </div>
 
     <!-- Bio Section -->
+   <div class="bio-container">
     <div class="bio" id="bioText">
         Hello! I'm Vale
     </div>
+     <div class="bio">
+        <!-- Reference image relative to the HTML file -->
+        <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c000e4170174072cb7561e_valepic.jpg" alt="Valentina's Profile Picture" style="width: 300px; height: auto;">
+    </div>
+</div>
+
 
     <!-- Footer Section -->
     <div class="footer">
