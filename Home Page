@@ -55,7 +55,7 @@
         .nav-links a {
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            color: #e1e1e1;
+            color: #E6C0CD;
             font-size: 1.2rem;
             transition: transform 0.3s ease, color 0.3s ease;
         }
@@ -189,43 +189,32 @@
                 align-items: center;
                 background: #F1F1F1;
                 z-index: 1000;
+               
             }
 
             .header h1 {
-                font-size: 2rem; /* Smaller header text on mobile */
+                font-size: 0.7rem; /* Smaller header text on mobile */
             }
 
             .bio {
-                font-size: 2.5rem; /* Smaller bio text on mobile */
+                font-size: 2rem; /* Smaller bio text on mobile */
                 left: 10%; /* Adjust the bio text position */
-                top: 30%;
+                top: 50%;
             }
 
-            .hamburger-menu {
-                display: block;
-                font-size: 2rem;
-                cursor: pointer;
-            }
 
-            .nav-links {
-                display: none;
-            }
+              .nav-links {
+              display: flex;
+              gap: 30px;
+          }
 
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background: #F1F1F1;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-            .nav-links a {
-                padding: 10px;
-                font-size: 1.5rem;
-            }
+          .nav-links a {
+              text-decoration: none;
+              font-family: 'Montserrat', sans-serif;
+              color: #E6C0CD;
+              font-size: 0.7rem;
+              transition: transform 0.3s ease, color 0.3s ease;
+          }
         }
 
     </style>
@@ -241,7 +230,7 @@
         </nav>
 
         <!-- Mobile Hamburger Menu -->
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        
     </div>
 
     <!-- Bio Section -->
@@ -282,10 +271,7 @@
     </div>
 
     <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+       
 
         gsap.from(".fade-in", { 
             opacity: 0, 
