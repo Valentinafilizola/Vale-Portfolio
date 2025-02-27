@@ -70,8 +70,8 @@
             text-align: left;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 2rem;
-            color: #E67999;
+            font-size: 1.5rem; /* Smaller bio text */
+            color: #E67999; /* Dark grey color */
             margin-top: 0;
             position: absolute;
             top: 30%;
@@ -90,6 +90,30 @@
             opacity: 1; /* Make it visible when the class "visible" is added */
         }
 
+        /* Additional Bio Section */
+        .additional-bio {
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem; /* Smaller font size */
+            color: #333333; /* Dark grey */
+            margin-top: 30px;
+            position: absolute;
+            top: 32%;
+            left: 15%;
+            max-width: 35%;
+            line-height: 1.8;
+            word-wrap: break-word;
+            white-space: normal;
+            min-height: 700vh;
+            opacity: 0; /* Start with the text hidden */
+            transition: opacity 3s ease; /* Add transition for opacity */
+            transform: translateX(0%);
+        }
+
+        .additional-bio.visible {
+                   opacity: 1; /* Make it visible when the class "visible" is added */
+               }
         /* Footer */
         .footer {
             position: absolute;
@@ -125,7 +149,7 @@
             }
 
             .bio {
-                font-size: 2rem; /* Smaller bio text on mobile */
+                font-size: 1.5rem; /* Smaller bio text on mobile */
                 left: 10%; /* Adjust the bio text position */
                 top: 30%;
             }
@@ -161,10 +185,9 @@
 </head>
 <body>
     <div class="header">
-       
-      	<a href="https://valentinafilizola.webflow.io" style="text-decoration: none;">
-    <h1>Valentina Filizola</h1>
-</a>
+       <a href="https://valentinafilizola.webflow.io" style="text-decoration: none;">
+            <h1>Valentina Filizola</h1>
+        </a>
         <nav class="nav-links">
             <a href="https://valentinafilizola.webflow.io/about">About</a>
             <a href="#projects">Projects</a>
@@ -173,16 +196,21 @@
     </div>
 
     <!-- Bio Section -->
-   <div class="bio-container">
-    <div class="bio" id="bioText">
-        Hello! I'm Vale
+    <div class="bio-container">
+        <div class="bio" id="bioText">
+            Hello! I'm Vale
+        </div>
+        <div class="bio">
+            <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c000e4170174072cb7561e_valepic.jpg" alt="Valentina's Profile Picture" style="width: 300px; height: auto;">
+        </div>
     </div>
-     <div class="bio">
-        <!-- Reference image relative to the HTML file -->
-        <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c000e4170174072cb7561e_valepic.jpg" alt="Valentina's Profile Picture" style="width: 300px; height: auto;">
-    </div>
-</div>
 
+    <!-- Additional Bio Text -->
+    <div class="additional-bio">
+       <p> Moving twelve times across Mexico, Colombia, Canada, and the United States has shaped the way I see communication, connection, and design. At the University of Washington, I study Human-Centered Design and Engineering, a discipline that blends people, technology, and problem-solving. </p>
+   		 <p>Outside of class, I serve as the president of the university’s premier engineering fraternity, where I manage cross-functional teams and coordinate large-scale initiatives. When I am not designing or leading teams, I compete for the UW climbing team, which has given me an unexpected lesson in patience and problem-solving. Whether in design, leadership, or climbing, I am always drawn to challenges that require adaptability, curiosity, and creative thinking.</p>
+
+    </div>
 
     <!-- Footer Section -->
     <div class="footer">
@@ -191,7 +219,6 @@
   <a href="https://github.com/Valentinafilizola" style="display: inline;">GitHub |</a> 
   <a href="https://www.linkedin.com/in/valentina-filizola/" style="display: inline;">LinkedIn</a>
 </p>
-
     </div>
 
     <script>
@@ -200,10 +227,12 @@
             navLinks.classList.toggle('active');
         }
 
-        // Fade-in effect for the bio text
+        // Fade-in effect for both bio texts
         window.addEventListener("load", function() {
             const bio = document.getElementById("bioText");
-            bio.classList.add("visible"); // Add class to make it fade in
+            const additionalBio = document.getElementsByClassName("additional-bio")[0];
+            bio.classList.add("visible"); // Add class to make the main bio text fade in
+            additionalBio.classList.add("visible"); // Add class to make the additional bio text fade in
         });
     </script>
 
