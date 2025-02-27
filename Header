@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina's About Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&family=Montserrat:wght@600&display=swap');
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #FCFCFC; /* Initial light grey */
+            color: #e1e1e1; /* Light gray text */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #FCFCFC; /* Start with light grey */
+            z-index: 1000;
+            transition: background 0.5s ease;
+            box-shadow: none;
+        }
+
+        .header h1 {
+            font-family: 'Judson', serif;
+            color: #E67999; /* Pink color for the header title */
+            font-size: 2.5rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .header h1:hover {
+            color: #E6C0CD; /* Hover color */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            color: #e1e1e1;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #E67999; /* Turn to pink when hovered */
+            transform: scale(1.1);
+        }
+
+        /* Mobile Styling */
+        @media (max-width: 768px) {
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #F1F1F1;
+                z-index: 1000;
+            }
+
+            .header h1 {
+                font-size: 2rem; /* Smaller header text on mobile */
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #F1F1F1;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://valentinafilizola.webflow.io" style="text-decoration: none;">
+            <h1>Valentina Filizola</h1>
+        </a>
+    <nav class="nav-links">
+            <a href="https://valentinafilizola.webflow.io/about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</body>
+</html>
