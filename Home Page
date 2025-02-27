@@ -44,7 +44,7 @@
         }
 
         .header h1:hover {
-            color: #ff3366; /* Hover color */
+            color: #E6C0CD; /* Hover color */
         }
 
         .nav-links {
@@ -249,12 +249,17 @@
         Creating equitable and impactful user experiences @ the University of Washington.
     </div>
 
-    <div id="projects" class="projects">
+   <div id="projects" class="projects">
+    <a href="https://valentinafilizola.webflow.io/work/project-2" class="project-link" style="text-decoration: none;">
         <div class="project" style="background-color: #F9E5E5;">
-            <img src="https://via.placeholder.com/800x500/FF6347" alt="Project Image">
-            <div class="title">Case Study 1</div>
-            <div class="description">A project that explores innovative solutions in design and technology.</div>
+            <img src="https://valentinafilizola.webflow.io/project2" alt="Project Image">
+            <div class="title">Cook'd</div>
+            <div class="description">A mobile platform that helps college students find affordable recipes and share meal ideas.</div>
         </div>
+    </a>
+
+
+
         <div class="project" style="background-color: #F8D3D3;">
             <img src="https://via.placeholder.com/800x500/FF8C00" alt="Project Image">
             <div class="title">Case Study 2</div>
