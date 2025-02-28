@@ -163,7 +163,7 @@
             margin-top: 10px;
         }
 
-        .footer {
+          .footer {
             text-align: center;
             padding: 40px;
             font-size: 1rem;
@@ -179,7 +179,6 @@
         .footer a:hover {
             color: #ff3366;
         }
-
         /* Mobile Styling */
         @media (max-width: 768px) {
             /* Remove the desktop header text and hamburger menu for mobile */
@@ -226,7 +225,7 @@
             <a href="https://valentinafilizola.webflow.io/about">About</a> 
          
             <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="mailto:Vfiliz@uw.edu">Contact</a>
         </nav>
 
         <!-- Mobile Hamburger Menu -->
@@ -239,21 +238,25 @@
     </div>
 
    <div id="projects" class="projects">
-    <a href="https://valentinafilizola.webflow.io/work/project-2" class="project-link" style="text-decoration: none;">
+    <a href="https://valentinafilizola.webflow.io/work/cookd" class="project-link" style="text-decoration: none;">
         <div class="project" style="background-color: #F9E5E5;">
-            <img src="https://valentinafilizola.webflow.io/project2" alt="Project Image">
+            <img src="https://valentinafilizola.webflow.io/cookd" alt="Project Image">
             <div class="title">Cook'd</div>
             <div class="description">A mobile platform that helps college students find affordable recipes and share meal ideas.</div>
         </div>
     </a>
 
 
-
-        <div class="project" style="background-color: #F8D3D3;">
+				<a href="https://valentinafilizola.webflow.io/work/rainy-dawg-radio" class="project-link" style="text-decoration: none;">
+        		<div class="project" style="background-color: #F8D3D3;">
             <img src="https://via.placeholder.com/800x500/FF8C00" alt="Project Image">
-            <div class="title">Case Study 2</div>
-            <div class="description">Exploring the intersection of art and engineering in this unique project.</div>
-        </div>
+            <div class="title">Rainy Dawg Radio</div>
+            <div class="description">Redesigning the mobile experience for the University of Washington’s only student-run radio station.</div>
+       	 
+         		</div>
+         	</a>
+       
+        
         <div class="project" style="background-color: #F5C6C6;">
             <img src="https://via.placeholder.com/800x500/20B2AA" alt="Project Image">
             <div class="title">Case Study 3</div>
