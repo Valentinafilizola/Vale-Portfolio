@@ -55,7 +55,7 @@
         .nav-links a {
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            color: #e1e1e1;
+            color: #E6C0CD;
             font-size: 1.2rem;
             transition: transform 0.3s ease, color 0.3s ease;
         }
@@ -64,7 +64,8 @@
             color: #E67999; /* Turn to pink when hovered */
             transform: scale(1.1);
         }
-
+        
+        
         /* Bio Section */
         .bio {
             text-align: left;
@@ -105,7 +106,6 @@
             line-height: 1.8;
             word-wrap: break-word;
             white-space: normal;
-            min-height: 700vh;
             opacity: 0; /* Start with the text hidden */
             transition: opacity 3s ease; /* Add transition for opacity */
             transform: translateX(0%);
@@ -114,7 +114,8 @@
         .additional-bio.visible {
                    opacity: 1; /* Make it visible when the class "visible" is added */
                }
-        /* Footer */
+         /* Footer */
+        
         .footer {
             position: absolute;
             bottom: 20px;
@@ -134,6 +135,7 @@
             color: #E6C0CD;
         }
 
+
         /* Mobile Styling */
         @media (max-width: 768px) {
             .header {
@@ -144,8 +146,8 @@
                 z-index: 1000;
             }
 
-            .header h1 {
-                font-size: 2rem; /* Smaller header text on mobile */
+             .header h1 {
+                font-size: 0.7rem; /* Smaller header text on mobile */
             }
 
             .bio {
@@ -154,32 +156,47 @@
                 top: 30%;
             }
 
-            .hamburger-menu {
-                display: block;
-                font-size: 2rem;
-                cursor: pointer;
+						.additional-bio {
+             		font-size: 1rem; /* Smaller bio text on mobile */
+                left: 10%; /* Adjust the bio text position */
+                top: 35%;
+                max-width: 85%;
             }
+           
+             .nav-links {
+              display: flex;
+              gap: 30px;
+          }
 
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background: #F1F1F1;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-            .nav-links a {
-                padding: 10px;
-                font-size: 1.5rem;
-            }
+          .nav-links a {
+              text-decoration: none;
+              font-family: 'Montserrat', sans-serif;
+              color: #E6C0CD;
+              font-size: 0.7rem;
+              transition: transform 0.3s ease, color 0.3s ease;
+          }
+        
+        
+         .footer {
+            position: absolute;
+            top: 200%;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #b3b3b3;
         }
+
+        .footer a {
+            color: #E67999;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #E6C0CD;
+        }
+
+
 
     </style>
 </head>
