@@ -156,12 +156,14 @@
 
         .project .description {
             font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
             font-size: 1.5rem; /* Made text size larger for the case studies */
             color: #333;
             padding: 0 20px;
             text-align: center;
             margin-top: 10px;
         }
+        
 
           .footer {
             text-align: center;
@@ -225,7 +227,7 @@
             <a href="https://valentinafilizola.webflow.io/about">About</a> 
          
             <a href="#projects">Projects</a>
-            <a href="mailto:Vfiliz@uw.edu">Contact</a>
+             <a href="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c1783bb6d29ea35ddea856_Valentina%20Filizola%20Resume.pdf">Resume</a>
         </nav>
 
         <!-- Mobile Hamburger Menu -->
@@ -237,37 +239,47 @@
         Creating equitable and impactful user experiences @ the University of Washington.
     </div>
 
-   <div id="projects" class="projects">
+<div id="projects" class="projects">
     <a href="https://valentinafilizola.webflow.io/work/cookd" class="project-link" style="text-decoration: none;">
-        <div class="project" style="background-color: #F9E5E5;">
-            <img src="https://valentinafilizola.webflow.io/cookd" alt="Project Image">
+        <div class="project" style="background-color: #F9E5E5; display: flex; justify-content: center; align-items: center;">
+            <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c21e86d18f909ef6a6ff61_Mockup.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
             <div class="title">Cook'd</div>
             <div class="description">A mobile platform that helps college students find affordable recipes and share meal ideas.</div>
         </div>
     </a>
 
 
+    
+
+
+
+
 				<a href="https://valentinafilizola.webflow.io/work/rainy-dawg-radio" class="project-link" style="text-decoration: none;">
         		<div class="project" style="background-color: #F8D3D3;">
-            <img src="https://via.placeholder.com/800x500/FF8C00" alt="Project Image">
+            <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c18a995d3c7f8a7091de55_Mockup.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
             <div class="title">Rainy Dawg Radio</div>
             <div class="description">Redesigning the mobile experience for the University of Washington’s only student-run radio station.</div>
        	 
          		</div>
          	</a>
        
-        
+       
+       <a href=" https://valentinafilizola.webflow.io/work/eat-together" class="project-link" style="text-decoration: none;">
         <div class="project" style="background-color: #F5C6C6;">
-            <img src="https://via.placeholder.com/800x500/20B2AA" alt="Project Image">
-            <div class="title">Case Study 3</div>
-            <div class="description">A case study showcasing breakthrough technological advancements.</div>
+           <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c445b8302b8f783c3565e6_Frame%20346.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
+            <div class="title">Eat Together</div>
+            <div class="description">Enhancing the campus dining experience for a community of 400+ users.</div>
         </div>
+        	</a>
+          
+          
         <div class="project" style="background-color: #F0A5A5;">
             <img src="https://via.placeholder.com/800x500/8A2BE2" alt="Project Image">
-            <div class="title">Case Study 4</div>
-            <div class="description">A deep dive into design thinking and its impact on modern engineering.</div>
+            <div class="title">Beargrass</div>
+            <div class="description">Work in progress</div>
         </div>
     </div>
+    
 
     <div class="footer">
         <p>Created by Valentina Filizola | <a href="mailto:valentina@example.com">Contact Me</a></p>
