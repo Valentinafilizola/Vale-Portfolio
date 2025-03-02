@@ -19,6 +19,23 @@
             overflow-x: hidden;
             transition: background 0.5s ease, color 0.5s ease;
         }
+        
+          /* Style for the typing text container */
+        .typing-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            white-space: pre-wrap;
+            color: #E6C0CD;
+            max-width: 100%;
+            overflow: hidden;
+            border-right: 4px solid #fff; /* Cursor effect */
+           	padding: 10px 150px; /* Padding to create space for the cursor */
+            margin-top: 20%;
+            line-height: 1.8;
+            
+            
+            
+        }
 
         /* Header */
         .header {
@@ -112,7 +129,7 @@
         .projects {
             display: flex;
             gap: 0;
-            margin-top: 600px; /* Adjusted to add more scrolling on the dark grey screen */
+            margin-top: 400px; /* Adjusted to add more scrolling on the dark grey screen */
             padding: 0;
             height: 100vh;
             flex-direction: column;
@@ -221,6 +238,60 @@
     </style>
 </head>
 <body>
+
+ <!-- Container for the typing text -->
+    <div class="typing-text" id="typingText"></div>
+
+    <script>
+        const textEnglish = "Hi, I’m Vale! I turn complex problems into simple designs\nand I’m looking for a product design internship to make it happen.";
+        const textSpanish = "Hola, soy Vale";
+        const typingTextElement = document.getElementById("typingText");
+        let currentTextIndex = 0;
+        let isDeleting = false;
+        let currentText = '';
+        let typingSpeed = 45;
+        let deletingSpeed = 50;
+        let switchSpeed = 1000; // Delay before switching to Spanish
+
+        // Function to handle the typing effect
+        function typeText() {
+            if (isDeleting) {
+                // Remove one character
+                currentText = currentText.slice(0, -1);
+                typingTextElement.textContent = currentText;
+                
+                if (currentText === '') {
+                    isDeleting = false;
+                    setTimeout(typeText, switchSpeed); // Wait before typing Spanish
+                } else {
+                    setTimeout(typeText, deletingSpeed); // Deleting speed
+                }
+            } else {
+                // Add one character
+                if (currentTextIndex < textEnglish.length) {
+                    currentText += textEnglish[currentTextIndex];
+                    typingTextElement.textContent = currentText;
+                    currentTextIndex++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    // Once finished typing the text, start deleting after a delay
+                    setTimeout(() => {
+                        isDeleting = true;
+                        currentTextIndex = 0; // Reset the index for Spanish text
+                        // Swap text with Spanish
+                        setTimeout(() => {
+                            textEnglish = textSpanish;
+                            typeText();
+                        }, switchSpeed); 
+                    }, 2000); // Delay before starting to delete
+                }
+            }
+        }
+
+        // Initialize the typing animation
+        typeText();
+    </script>
+    
     <div class="header">
         <h1>Valentina Filizola</h1>
         <nav class="nav-links">
