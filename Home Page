@@ -301,8 +301,7 @@
              <a href="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c1783bb6d29ea35ddea856_Valentina%20Filizola%20Resume.pdf">Resume</a>
         </nav>
 
-        <!-- Mobile Hamburger Menu -->
-        
+    
     </div>
 
     <!-- Bio Section -->
@@ -349,12 +348,19 @@
             <div class="title">Beargrass</div>
             <div class="description">Work in progress</div>
         </div>
+   
+
+
+
+   <div class="footer">
+         <p>Created by Valentina Filizola |
+  <a href="mailto:Vfiliz@uw.edu" style="display: inline;"> Contact Me |</a> 
+  <a href="https://github.com/Valentinafilizola" style="display: inline;">GitHub |</a> 
+  <a href="https://www.linkedin.com/in/valentina-filizola/" style="display: inline;">LinkedIn</a>
+</p>
     </div>
     
-
-    <div class="footer">
-        <p>Created by Valentina Filizola | <a href="mailto:valentina@example.com">Contact Me</a></p>
-    </div>
+       </div>
 
     <script>
        
