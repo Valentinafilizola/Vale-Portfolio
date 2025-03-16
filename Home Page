@@ -20,6 +20,20 @@
             transition: background 0.5s ease, color 0.5s ease;
         }
         
+          /* Custom Cursor Styling */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%; /* Circular shape */
+            background-color: #E67999; /* Pink color */
+            pointer-events: none; /* Prevent cursor from blocking other elements */
+            transform: translate(-50%, -50%); /* Center the cursor */
+            transition: transform 0.1s ease; /* Smooth transition */
+        }
+        
           /* Style for the typing text container */
         .typing-text {
             font-size: 2.5rem;
@@ -129,7 +143,7 @@
         .projects {
             display: flex;
             gap: 0;
-            margin-top: 400px; /* Adjusted to add more scrolling on the dark grey screen */
+            margin-top: 350px; /* Adjusted to add more scrolling on the dark grey screen */
             padding: 0;
             height: 100vh;
             flex-direction: column;
@@ -196,12 +210,27 @@
         }
 
         .footer a:hover {
-            color: #ff3366;
+            color: #E6C0CD;
         }
         /* Mobile Styling */
         @media (max-width: 768px) {
             /* Remove the desktop header text and hamburger menu for mobile */
-            .header {
+           
+           .typing-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: pre-wrap;
+            color: #E6C0CD;
+            max-width: 100%;
+            padding: 1px 40px; 
+            overflow: hidden;
+            border-right: 4px solid #fff; /* Cursor effect */
+            margin-top: -30%;
+            line-height: 1.8;    
+            
+        }
+
+           .header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -217,7 +246,7 @@
             .bio {
                 font-size: 2rem; /* Smaller bio text on mobile */
                 left: 10%; /* Adjust the bio text position */
-                top: 50%;
+                top: 30%;
             }
 
 
@@ -239,10 +268,27 @@
 </head>
 <body>
 
+
+
  <!-- Container for the typing text -->
     <div class="typing-text" id="typingText"></div>
 
+       <!-- Custom Cursor Element -->
+    <div class="cursor" id="cursor"></div>
+
     <script>
+        const cursor = document.getElementById('cursor');
+
+        // Listen to mouse movement events
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the cursor element to follow the mouse
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+        });
+
         const textEnglish = "Hi, I’m Vale! I turn complex problems into simple designs\nand I’m looking for a product design internship to make it happen.";
         const textSpanish = "Hola, soy Vale";
         const typingTextElement = document.getElementById("typingText");
@@ -290,6 +336,7 @@
 
         // Initialize the typing animation
         typeText();
+        
     </script>
     
     <div class="header">
@@ -298,10 +345,11 @@
             <a href="https://valentinafilizola.webflow.io/about">About</a> 
          
             <a href="#projects">Projects</a>
-             <a href="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c1783bb6d29ea35ddea856_Valentina%20Filizola%20Resume.pdf">Resume</a>
+             <a href="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c606dd9c5394b2bf924b92_%20Valentina%20Filizola%20Resume.pdf">Resume</a>
         </nav>
 
-    
+      
+        
     </div>
 
     <!-- Bio Section -->
@@ -310,8 +358,17 @@
     </div>
 
 <div id="projects" class="projects">
+
+  <a  href=" https://valentinafilizola.webflow.io/work/beargrass" class="project-link" style="text-decoration: none;">
+              <div class="project" style="background-color: #F9E5E5;">
+            <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67d60174ad47577d40bffa85_Mockup%20Preview.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
+            <div class="title">Beargrass</div>
+            <div class="description">Elevating the Beargrass Festival experience with vibrant visuals.</div>
+        </div>
+          	</a>
+            
     <a href="https://valentinafilizola.webflow.io/work/cookd" class="project-link" style="text-decoration: none;">
-        <div class="project" style="background-color: #F9E5E5; display: flex; justify-content: center; align-items: center;">
+        <div class="project" style="background-color: #F8D3D3;  display: flex; justify-content: center; align-items: center;">
             <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c21e86d18f909ef6a6ff61_Mockup.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
             <div class="title">Cook'd</div>
             <div class="description">A mobile platform that helps college students find affordable recipes and share meal ideas.</div>
@@ -320,12 +377,8 @@
 
 
     
-
-
-
-
 				<a href="https://valentinafilizola.webflow.io/work/rainy-dawg-radio" class="project-link" style="text-decoration: none;">
-        		<div class="project" style="background-color: #F8D3D3;">
+        		<div class="project" style="background-color: #F5C6C6;"> 
             <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c18a995d3c7f8a7091de55_Mockup.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
             <div class="title">Rainy Dawg Radio</div>
             <div class="description">Redesigning the mobile experience for the University of Washington’s only student-run radio station.</div>
@@ -335,24 +388,22 @@
        
        
        <a href=" https://valentinafilizola.webflow.io/work/eat-together" class="project-link" style="text-decoration: none;">
-        <div class="project" style="background-color: #F5C6C6;">
+        <div class="project" style="background-color: #F0A5A5;"> 
            <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c445b8302b8f783c3565e6_Frame%20346.png" alt="Project Image" style="width: 600px; display: block; left: 0%;">
             <div class="title">Eat Together</div>
             <div class="description">Enhancing the campus dining experience for a community of 400+ users.</div>
         </div>
         	</a>
           
-          
-        <div class="project" style="background-color: #F0A5A5;">
-            <img src="https://via.placeholder.com/800x500/8A2BE2" alt="Project Image">
-            <div class="title">Beargrass</div>
-            <div class="description">Work in progress</div>
-        </div>
+        
    
+     
+     
+          
+          
+        
 
-
-
-   <div class="footer">
+    <div class="footer">
          <p>Created by Valentina Filizola |
   <a href="mailto:Vfiliz@uw.edu" style="display: inline;"> Contact Me |</a> 
   <a href="https://github.com/Valentinafilizola" style="display: inline;">GitHub |</a> 
