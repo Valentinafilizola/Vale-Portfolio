@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina's Apple-Inspired Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Judson:wght@700&family=Montserrat:wght@600&display=swap');
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #F1F1F1; /* Initial light grey */
+            color: #e1e1e1; /* Light gray text */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        
+          /* Custom Cursor Styling */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%; /* Circular shape */
+            background-color: #E67999; /* Pink color */
+            pointer-events: none; /* Prevent cursor from blocking other elements */
+            transform: translate(-50%, -50%); /* Center the cursor */
+            transition: transform 0.1s ease; /* Smooth transition */
+        }
+        
+          /* Style for the typing text container */
+        .typing-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            white-space: pre-wrap;
+            color: #E6C0CD;
+            max-width: 100%;
+            overflow: hidden;
+            border-right: 4px solid #fff; /* Cursor effect */
+           	padding: 10px 150px; /* Padding to create space for the cursor */
+            margin-top: 20%;
+            line-height: 1.8;
+            
+            
+            
+        }
+        
+        /* Selected Works Section */
+.selected-works {
+    padding: 100px 60px;
+    margin-top: 100px;
+    background-color: #F1F1F1;
+}
+
+.selected-works h2 {
+    font-family: 'Judson', serif;
+    font-size: 2.5rem;
+    color: #E67999;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.selected-works h2 sup {
+    font-size: 1rem;
+    vertical-align: super;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+}
+
+.work-item {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+}
+
+.work-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.work-info {
+    position: relative;
+}
+
+.work-number {
+    font-family: 'Judson', serif;
+    font-size: 1.5rem;
+    color: #E67999;
+    margin-bottom: 10px;
+}
+
+.work-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background-color: rgba(230, 121, 153, 0.1);
+    border-radius: 20px;
+    color: #E67999;
+}
+
+.work-title {
+    font-family: 'Judson', serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.work-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.work-available {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Mobile Styling for Selected Works */
+@media (max-width: 768px) {
+    .selected-works {
+        padding: 60px 30px;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .selected-works h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .work-title {
+        font-size: 1.5rem;
+    }
+}
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #F1F1F1; /* Start with light grey */
+            z-index: 1000;
+            transition: background 0.5s ease; /* Ensures smooth transition */
+            box-shadow: none; /* Remove box shadow */
+        }
+
+        .header h1 {
+            font-family: 'Judson', serif;
+            color: #E67999; /* Pink color for the header title */
+            font-size: 2.5rem;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .header h1:hover {
+            color: #E6C0CD; /* Hover color */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            color: #E6C0CD;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #E67999; /* Turn to pink when hovered */
+            transform: scale(1.1);
+        }
+
+        /* Fade-in Effect */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+            backdrop-filter: blur(15px);
+            width: 80%;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bio Section */
+        .bio {
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 4rem;
+            color: #E67999;
+            margin-top: 0;
+            position: absolute;
+            top: 35%;
+            left: 10%;
+            transform: translateX(0%);
+            line-height: 1.8;
+            letter-spacing: 2px;
+            max-width: 80%;
+            word-wrap: break-word;
+            white-space: normal;
+            transition: color 0.5s ease;
+        }
+
+        /* Sliding Gallery Section */
+        .sliding-gallery {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        .gallery-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .gallery-item img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .gallery-info {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: #E67999;
+        }
+
+        .gallery-number {
+            font-family: 'Judson', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            padding: 5px 15px;
+            background-color: rgba(230, 121, 153, 0.2);
+            border-radius: 20px;
+        }
+
+        .gallery-available {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: flex;
+            gap: 0;
+            margin-top: 350px; /* Adjusted to add more scrolling on the dark grey screen */
+            padding: 0;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .project {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #f5f0f6; /* Light pink for case study screens */
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            object-fit: cover;
+            width: 100%;
+            height: 60%;
+            transition: transform 0.3s ease;
+        }
+
+        .project .title {
+            font-family: 'Judson', serif;
+            font-size: 2.5rem;
+            color: #1d1d1f;
+            margin-top: 20px;
+        }
+
+        .project .description {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.5rem; /* Made text size larger for the case studies */
+            color: #333;
+            padding: 0 20px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+
+          .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 1rem;
+            color: #b3b3b3;
+        }
+
+        .footer a {
+            color: #E67999;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #E6C0CD;
+        }
+        /* Mobile Styling */
+        @media (max-width: 768px) {
+            /* Remove the desktop header text and hamburger menu for mobile */
+           
+           .typing-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: pre-wrap;
+            color: #E6C0CD;
+            max-width: 100%;
+            padding: 1px 40px; 
+            overflow: hidden;
+            border-right: 4px solid #fff; /* Cursor effect */
+            margin-top: -30%;
+            line-height: 1.8;    
+            
+        }
+
+           .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #F1F1F1;
+                z-index: 1000;
+               
+            }
+
+            .header h1 {
+                font-size: 0.7rem; /* Smaller header text on mobile */
+            }
+
+            .bio {
+                font-size: 2rem; /* Smaller bio text on mobile */
+                left: 10%; /* Adjust the bio text position */
+                top: 30%;
+            }
+
+
+              .nav-links {
+              display: flex;
+              gap: 30px;
+          }
+
+          .nav-links a {
+              text-decoration: none;
+              font-family: 'Montserrat', sans-serif;
+              color: #E6C0CD;
+              font-size: 0.7rem;
+              transition: transform 0.3s ease, color 0.3s ease;
+          }
+          
+          /* Mobile Styling for Gallery */
+          .gallery-info {
+              top: 20px;
+              left: 20px;
+          }
+          
+          .gallery-number {
+              font-size: 1.8rem;
+          }
+          
+          .gallery-tag {
+              font-size: 0.7rem;
+          }
+          
+          .gallery-available {
+              font-size: 0.7rem;
+              bottom: 20px;
+          }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Container for the typing text -->
+    <div class="typing-text" id="typingText"></div>
+
+    <!-- Custom Cursor Element -->
+    <div class="cursor" id="cursor"></div>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+
+        // Listen to mouse movement events
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the cursor element to follow the mouse
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+        });
+
+        const textEnglish = "Hi, I'm Vale! I turn complex problems into simple designs\nand I'm looking for a product design internship to make it happen.";
+        const textSpanish = "Hola, soy Vale";
+        const typingTextElement = document.getElementById("typingText");
+        let currentTextIndex = 0;
+        let isDeleting = false;
+        let currentText = '';
+        let typingSpeed = 45;
+        let deletingSpeed = 50;
+        let switchSpeed = 1000; // Delay before switching to Spanish
+
+        // Function to handle the typing effect
+        function typeText() {
+            if (isDeleting) {
+                // Remove one character
+                currentText = currentText.slice(0, -1);
+                typingTextElement.textContent = currentText;
+                
+                if (currentText === '') {
+                    isDeleting = false;
+                    setTimeout(typeText, switchSpeed); // Wait before typing Spanish
+                } else {
+                    setTimeout(typeText, deletingSpeed); // Deleting speed
+                }
+            } else {
+                // Add one character
+                if (currentTextIndex < textEnglish.length) {
+                    currentText += textEnglish[currentTextIndex];
+                    typingTextElement.textContent = currentText;
+                    currentTextIndex++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    // Once finished typing the text, start deleting after a delay
+                    setTimeout(() => {
+                        isDeleting = true;
+                        currentTextIndex = 0; // Reset the index for Spanish text
+                        // Swap text with Spanish
+                        setTimeout(() => {
+                            textEnglish = textSpanish;
+                            typeText();
+                        }, switchSpeed); 
+                    }, 2000); // Delay before starting to delete
+                }
+            }
+        }
+
+        // Initialize the typing animation
+        typeText();
+        
+    </script>
+    
+    <div class="header">
+        <h1>Valentina Filizola</h1>
+        <nav class="nav-links">
+            <a href="https://valentinafilizola.webflow.io/about">About</a> 
+         
+            <a href="#projects">Projects</a>
+             <a href="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c606dd9c5394b2bf924b92_%20Valentina%20Filizola%20Resume.pdf">Resume</a>
+        </nav>
+
+      
+        
+    </div>
+
+    <!-- Bio Section -->
+    <div class="bio">
+        Creating equitable and impactful user experiences @ the University of Washington.
+    </div>
+
+    
+   <div class="selected-works">
+    <h2>Selected Works<sup>4</sup></h2>
+    
+    <div class="works-grid">
+        <div class="work-item">
+            <a href="https://valentinafilizola.webflow.io/work/beargrass">
+                <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67d60174ad47577d40bffa85_Mockup%20Preview.png" alt="Beargrass Project">
+                <div class="work-info">
+                    <div class="work-number">01</div>
+                    <div class="work-tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Visual Design</span>
+                    </div>
+                    <h3 class="work-title">Beargrass</h3>
+                    <div class="work-description">Elevating the Beargrass Festival experience with vibrant visuals.</div>
+                    <div class="work-available">Available for viewing</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="work-item">
+            <a href="https://valentinafilizola.webflow.io/work/cookd">
+                <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c21e86d18f909ef6a6ff61_Mockup.png" alt="Cook'd Project">
+                <div class="work-info">
+                    <div class="work-number">02</div>
+                    <div class="work-tags">
+                        <span class="tag">User Research</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+                    <h3 class="work-title">Cook'd</h3>
+                    <div class="work-description">A mobile platform that helps college students find affordable recipes and share meal ideas.</div>
+                    <div class="work-available">Available for viewing</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="work-item">
+            <a href="https://valentinafilizola.webflow.io/work/rainy-dawg-radio">
+                <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c18a995d3c7f8a7091de55_Mockup.png" alt="Rainy Dawg Radio Project">
+                <div class="work-info">
+                    <div class="work-number">03</div>
+                    <div class="work-tags">
+                        <span class="tag">Interaction Design</span>
+                        <span class="tag">Mobile UX</span>
+                    </div>
+                    <h3 class="work-title">Rainy Dawg Radio</h3>
+                    <div class="work-description">Redesigning the mobile experience for the University of Washington's only student-run radio station.</div>
+                    <div class="work-available">Available for viewing</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="work-item">
+            <a href="https://valentinafilizola.webflow.io/work/eat-together">
+                <img src="https://cdn.prod.website-files.com/673d7002f175a5ba9adeafc1/67c445b8302b8f783c3565e6_Frame%20346.png" alt="Eat Together Project">
+                <div class="work-info">
+                    <div class="work-number">04</div>
+                    <div class="work-tags">
+                        <span class="tag">User Testing</span>
+                        <span class="tag">Information Architecture</span>
+                    </div>
+                    <h3 class="work-title">Eat Together</h3>
+                    <div class="work-description">Enhancing the campus dining experience for a community of 400+ users.</div>
+                    <div class="work-available">Available for viewing</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
